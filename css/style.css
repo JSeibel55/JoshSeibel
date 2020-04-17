@@ -1,0 +1,172 @@
+/***** ALL *****/
+body {
+    background-color: rgb(216, 223, 224);
+}
+hr {
+    height: 2px;
+    background-color: rgb(66, 136, 95);
+    border: none;
+}
+
+/***** NAVBAR *****/
+.navbar-brand{
+    font-size: 24px;
+    margin-left: -15%;
+}
+.nav-link{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+@media screen and (max-width: 1500px) {
+    .navbar-brand {margin-left: 0px;}
+}
+
+/***** Landing Page *****/
+.jumbotron-heading{
+    font-size: 72px;
+    font-weight: bold;
+    color: white;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.jumbotron-paragraph{
+    font-size: 28px;
+    line-height: 40px;
+    color: white;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.jumbotron{
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    padding-top: 120px;
+    padding-bottom: 50px;
+    
+}
+.jumbotron-fluid {
+    padding-right: 15px;
+}
+.landingpage{
+    padding-left: 100px;
+}
+.landing {
+    width:40%;
+}
+@media screen and (max-width: 1100px) {
+    .landing {width: 60%}
+}
+@media screen and (max-width: 600px) {
+    .row {width: 100%;}
+    .jumbotron-paragraph{font-size: 24px; line-height: 40px; font-weight: bold;}
+    .jumbotron {padding-top: 20%; padding-bottom: 0px; width: 100%;}
+    .landingpage {padding-left: 50px; width: 100%}
+}
+
+/***** About *****/
+.page-content-about{
+    padding-left: 100px;
+    margin-top: 100px;
+}
+#about-text{
+    font-size: 20px;
+    margin-bottom: 100px;
+}
+@media screen and (max-width: 600px) {
+    .page-content-about{padding-left: 10px;}
+}
+
+
+/***** Portfolio *****/
+.page-content-portfolio{
+    margin-top: 100px;
+}
+.porfolio-header{
+    margin-left: 20px;
+    padding-left: 100px;
+    width: 95%;
+}
+.map-container{
+    margin-left: 100px;
+    margin-right: 10px;
+}
+.map-row{
+    margin: 30px 100px 100px 100px;
+}
+.map{  
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.portfolio-thumbnail{
+    border: 3px solid black;
+    border-radius: 5px;
+}
+.portfolio-thumbnail-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 0px;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+@media screen and (max-width: 600px) {
+    .map-row{margin: 0 5px 0 5px;}
+    .map{margin-top: 50px;}
+}
+
+
+/***** Resume *****/
+.page-content-resume {
+    padding-left: 100px;
+    margin-top: 100px;
+}
+.resume-section {
+    width: 95%;
+    margin-bottom: 50px;
+}
+.job-logo{
+    width: 100px;
+    height: 100px;
+    margin: 10px 0 20px 0;
+}
+.job-logo2{
+    width: 100px;
+    height: 120px;
+}
+.job-logo-container{
+    float:left;
+    width:12%;
+    overflow:hidden;
+}
+.job-description-container{
+    float: left;
+    margin-bottom: 20px;
+}
+.resume-education {
+    margin-bottom: 30px;
+}
+.education-logo{
+    width: 200px;
+    padding-right: 0px;
+}
+.education-logo-container{
+    float:left;
+    width:20%;
+    overflow:hidden;
+}
+.education-description-container{
+    float: left;
+}
+.education-content {
+    padding-left: 20px;
+}
+.education-date {
+    float: right;
+    margin-right: 10%;
+}
+@media screen and (max-width: 600px) {
+    .page-content-resume{padding-left: 25px;}
+    .job-logo-container{width: 50%;}
+    .education-logo-container{width: 100%}
+    .resume-job{padding-right: 0px}
+}
