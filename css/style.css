@@ -38,7 +38,7 @@ hr {
     font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .jumbotron{
-    background-image: url("/assets/background.jpg");
+    background-image: url("../assets/background.jpg");
     background-size: cover;
     padding-top: 120px;
     padding-bottom: 120px;  
