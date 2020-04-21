@@ -119,6 +119,11 @@ hr {
     border: 3px solid white;
     border-radius: 5px;
 }
+.map-link {
+    text-align: center;
+    font-size: 28px;
+    color: darkslategray;
+}
 @media screen and (max-width: 600px) {
     .map-row{margin: 0 5px 0 5px;}
     .map{margin-top: 50px;}
