@@ -121,13 +121,14 @@ hr {
 }
 .map-link {
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     color: darkslategray;
 }
 @media screen and (max-width: 600px) {
     .map-row{margin: 0 5px 0 5px;}
     .map{margin-top: 50px;}
     .porfolio-header{padding-left: 0; width: 90%;}
+    .map-link{font-size: 16px;}
 }
 
 /* Portfolio Map */
