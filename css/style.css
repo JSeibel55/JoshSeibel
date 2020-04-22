@@ -62,7 +62,7 @@ hr {
     .jumbotron-paragraph{font-size: 24px; line-height: 40px; font-weight: bold;}
     .jumbotron {padding-top: 20%; padding-bottom: 0px; width: 100%;}
     .landingpage {padding-left: 30px; width: 100%;}
-    .landing {padding:10px; background-color: rgba(5, 5, 5, 0);}
+    .landing {padding:10px; background-color: rgba(5, 5, 5, 0.253);}
 }
 
 /***** About *****/
@@ -192,7 +192,8 @@ hr {
 }
 .education-logo{
     width: 200px;
-    padding-right: 0px;
+    padding-right: 5px;
+    margin-bottom: 20px;
 }
 .education-logo-container{
     float:left;
@@ -216,4 +217,5 @@ hr {
     .education-header{font-size: 28px;}
     .education-content{font-size: 22px;}
     .resume-job{padding-right: 0px}
+    ul {padding-inline-start: 15px;}
 }
