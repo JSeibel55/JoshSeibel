@@ -211,11 +211,14 @@ hr {
     margin-right: 10%;
 }
 @media screen and (max-width: 600px) {
+    .resume-section {width: 100%;}
     .page-content-resume{padding-left: 25px;}
     .job-logo-container{width: 50%;}
     .education-logo-container{width: 100%}
+    .education-description-container{float: none; padding: 0;}
     .education-header{font-size: 28px;}
-    .education-content{font-size: 22px;}
+    .education-content{font-size: 22px; padding-left: 0px;}
     .resume-job{padding-right: 0px}
+    .education-date {float: none; display: block; padding-top: 10px;}
     ul {padding-inline-start: 15px;}
 }
