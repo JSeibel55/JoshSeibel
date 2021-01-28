@@ -54,16 +54,74 @@
                     <div class="col-md-12">
                         <h2 class="portfolio-map-title">Bird Migration Heatmap</h2>
                         <p class="portfolio-map-description">
-                            This web map originated out of a final project for Geography 573, Advanced Geocomputing and Geospatial Big Data Analytics.
-                            The original project scope was meant to use Python to analyze and visualize datasets that are usually too large 
-                            for more standard GIS technologies. web map was created through a Python script using the package Folium which allows for analysis/agggregation of
-                            large datasets and then output the data as time series heatmaps
+                            The full interactive web map: <a href="https://jseibel55.github.io/Bird-Migration-Heatmap/">Bird Migration Heatmap</a>
                         </p>
                         <p class="portfolio-map-description">
-                            The full interactive web map: <a href="https://jseibel55.github.io/The-Lost-People/">Bird Migrations Heatmap</a>
+                            This web map originated out of a final project for Geography 573, Advanced Geocomputing and Geospatial Big Data Analytics.
+                            The initial web map was generated through a Python script using the package Folium which allows for analysis/aggregation of
+                            large datasets and outputs the data as a time series heatmap. An example of the script I used to create an individual bird 
+                            heatmap animation can be seen below. The original project task was to use non-traditional mapping tools like Python 
+                            libraries to analyze a very large datasets. As I am an avid birder, I thought it would be interesting to explore 
+                            the migration patterns of birds across the United States. I have since expanded upon the original script to create a full 
+                            map tool that can select from multiple bird species. Currently I have limited the birds selectable in the tool to species 
+                            that I have worked with (either banded or nest surveyed/monitored) and migrate at least short distances. Hopefully I will work 
+                            with more bird species in the coming years and add more birds to the map!
                         </p>
-                        <a href="https://jseibel55.github.io/The-Lost-People/">
-                            <img src="../assets/maps/Bird-Migration-Heatmap.PNG" alt="The Lost People" class="portfolio-map-image">
+                        <p class="portfolio-map-description">
+                            Data that I used was acquired through <a href="https://ebird.org/home">eBird</a> from the <a href="https://www.birds.cornell.edu/home">Cornell Lab of Ornithology</a>, 
+                            which is the world's largest biodiversity-related citizen science project. More than 100 million bird sightings are contributed each 
+                            year by eBirders around the world. The collected data documents bird distribution, abundance, habitat use, and trends through 
+                            individual checklist. The data used in this animation was limited to 2015-2020 to minimize the size of data but still provide multiple 
+                            years for a migriation generalization of each bird represented. 
+                        </p>
+                        <pre>
+                            <code>
+import pandas as pd
+import folium
+from folium.plugins import HeatMap
+from folium.plugins import HeatMapWithTime
+import codecs
+
+# Creates a default html basemap
+def generateBaseMap(default_location=[32.748357, -81.723449], default_zoom_start=4):
+    base_map = folium.Map(location=default_location, control_scale=True, zoom_start=default_zoom_start)
+    return base_map
+
+bird_code = 'perfal'
+csv_name = 'CSV/'+bird_code+'_2015-2019.csv'
+
+# Convert text file to csv
+read_file = pd.read_csv (r'Data/raw/'+bird_code+'_2015_2019.txt', delimiter="\t", error_bad_lines=False)
+read_file.to_csv (csv_name, encoding='utf-8', index=False)
+
+# Filter out entries with 'X' in the observation count column and save over csv
+with codecs.open(csv_name, encoding = "utf8", errors ='replace') as csvfile:
+    df = pd.read_csv(csvfile, encoding="utf8", usecols = ['OBSERVATION DATE','LATITUDE','LONGITUDE','OBSERVATION COUNT'])  
+    df_clean = df[~(df == 'X').any(axis=1)]                
+    df_clean.to_csv (csv_name, encoding='utf-8', index=False)
+
+# Create a time series heatmap of the bird data
+with codecs.open(csv_name, encoding = "utf8", errors ='replace') as csvfile:
+    df = pd.read_csv(csvfile, encoding="utf8")
+
+    df['OBSERVATION DATE'] = pd.to_datetime(df['OBSERVATION DATE'], format='%Y/%m/%d')
+    df['month'] = df['OBSERVATION DATE'].apply(lambda x: x.month)
+
+    # Group observation counts by location and by month
+    df_month_list = []
+    for month in df.month.sort_values().unique():
+        df_month_list.append(df.loc[df.month == month, ['LATITUDE', 'LONGITUDE', 'OBSERVATION COUNT']].groupby(['LATITUDE', 'LONGITUDE']).sum().reset_index().values.tolist())
+
+    # Create the heatmap with time based off certain parameters and save the output
+    base_map = generateBaseMap(default_zoom_start=4)
+    m = HeatMapWithTime(df_month_list, radius=5, gradient={0.01: 'blue', 0.05: 'lime', 0.25: 'yellow', 0.5: 'orange', 1: 'red'}, min_opacity=0.5, max_opacity=0.8, use_local_extrema=True).add_to(base_map)
+    m.save('Data/Output/'+bird_code+'_migration_map.html')
+
+base_map
+                            </code>
+                        </pre>
+                        <a href="https://jseibel55.github.io/Bird-Migration-Heatmap/">
+                            <img src="../assets/maps/Bird-Migration-Heatmap.PNG" alt="Bird Migration Heatmap" class="portfolio-map-image">
                         </a>
                     </div>
                 </div>
