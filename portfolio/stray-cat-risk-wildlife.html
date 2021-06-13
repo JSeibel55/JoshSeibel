@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel='icon' href="../assets/favicon.png" type="image/png"/>
+        <meta name="keywords" content="Josh Seibel"/>
+		<title>Josh Seibel</title>
+
+        <!--External stylesheet links here-->
+        <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164131956-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-164131956-1');
+        </script>
+        
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark"> <!-- Creates the navbar -->
+                <div class="container">
+                    <a class="navbar-brand active" href="../index.html">Josh Seibel</a> <!-- Your website brand name -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav"> <!-- Links to include in navbar -->
+                        <ul class="navbar-nav ml-auto"> <!-- Unordered list for links on navbar -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="../about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../resume.html">Resume</a>
+                            </li>
+                        </ul>
+                    </div> <!-- end .navbar-collapse -->
+                </div> <!-- end .container -->
+            </nav> <!-- end navigation bar -->
+        </header>
+
+        <div class="page-content-portfolio-map">
+            <div class="container-fluid">
+                <div class="row portfolio-map">
+                    <div class="col-md-12">
+                        <h2 class="portfolio-map-title">Stray Cat Risk to Wildlife
+                            </h2>
+                        <p class="portfolio-map-description">
+                            This web map was made as the final practicum project for Geography 778, Practicum in GIS Development.
+                            To help guide the Dane County Humane Society staff with surrender decisions or recommendations of outdoor, 
+                            stray and feral cats, they wanted a GIS tool that prioritizes cats for removal from an area (and put into 
+                            the shelter) if they are at a higher risk of predating on wildlife species, especially if the species is of 
+                            conservation concern. Ultimately, this interactive web tool allows anyone to enter the location of the cat 
+                            (either by clicking on the map or entering the address), the tool evaluates the location to nearby 
+                            sensitive wildlife areas and displays the risk value to wildlife on a scale (low, medium, high value) along 
+                            with the affected sensitive areas.
+                            <br>
+                        </p>
+                        <p class="portfolio-map-description">
+                            The full interactive web map: <a href="https://jseibel55.github.io/Stray-Cat-Risk-to-Wildlife-in-WI/">Stray Cat Risk to Wildlife in South Central Wisconsin</a>
+                            <br>
+                        </p>
+                        <a href="https://jseibel55.github.io/Stray-Cat-Risk-to-Wildlife-in-WI/">
+                            <img src="../assets/maps/Stray-Cat-Risk-to-Wildlife-in-WI.PNG" alt="The Lost People" class="portfolio-map-image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--External script links here-->
+        <script type="text/javascript" src="../lib/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/main.js"></script>
+        
+    </body>
+</html>
